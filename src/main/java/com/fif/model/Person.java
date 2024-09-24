@@ -1,17 +1,19 @@
 package com.fif.model;
 
+import java.util.Date;
+
 public class Person {
     private Integer id;
     private String username;
     private String password;
     private String fullName;
     private String gender;
-    private String birthdayDate;
+    private Date birthdayDate;
     private String province;
     private String city;
-    private String luckyNumber;
+    private int luckyNumber;
 
-    public Person(Integer id, String username, String password, String fullName, String gender, String birthdayDate, String province, String city, String luckyNumber) {
+    public Person(Integer id, String username, String password, String fullName, String gender, Date birthdayDate, String province, String city, int luckyNumber) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -63,11 +65,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getBirthdayDate() {
+    public Date getBirthdayDate() {
         return birthdayDate;
     }
 
-    public void setBirthdayDate(String birthdayDate) {
+    public void setBirthdayDate(Date birthdayDate) {
         this.birthdayDate = birthdayDate;
     }
 
@@ -87,11 +89,11 @@ public class Person {
         this.city = city;
     }
 
-    public String getLuckyNumber() {
+    public int getLuckyNumber() {
         return luckyNumber;
     }
 
-    public void setLuckyNumber(String luckyNumber) {
+    public void setLuckyNumber(int luckyNumber) {
         this.luckyNumber = luckyNumber;
     }
 }

@@ -55,7 +55,7 @@ public class SearchController extends SelectorComposer<Component> {
         personListbox.setModel(dataModel);
     }
 
-    @Listen("onClick = #searchButton; onOk = window")
+    @Listen("onClick = #searchButton; onOK = window")
     public void search() {
         String keyword = keywordBox.getValue();
         dataModel.clear();
@@ -68,9 +68,9 @@ public class SearchController extends SelectorComposer<Component> {
         Person selected = selection.iterator().next();
         fullNameLabel.setValue(selected.getFullName());
         genderLabel.setValue(selected.getGender());
-        birthdayDateLabel.setValue(selected.getBirthdayDate());
+        birthdayDateLabel.setValue(String.valueOf(selected.getBirthdayDate()));
         cityLabel.setValue(selected.getCity());
         provinceLabel.setValue(selected.getProvince());
-        luckyNumberLabel.setValue(selected.getLuckyNumber());
+        luckyNumberLabel.setValue(String.valueOf(selected.getLuckyNumber()));
     }
 }
