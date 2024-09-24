@@ -1,0 +1,44 @@
+<window title="Search" width="100%" border="normal" onOK="@command('search')"
+        viewModel="@id('vm') @init('com.fif.viewModel.SearchViewModel')" style="margin:auto">
+    Keyword:
+    <textbox value="@save(vm.keyword)"/>
+    <button label="Search" iconSclass="z-icon-search" onClick="@command('search')" style="margin: 0 0 5px 5px"/>
+    <listbox model="@init(vm.personList)" emptyMessage="No person found in the result" rows="5"
+             selectedItem="@save(vm.selectedPerson)">
+        <listhead sizable="true">
+            <listheader label="ID"/>
+            <listheader label="Name"/>
+            <listheader label="Gender" />
+            <listheader label="Birthday Date"/>
+            <listheader label="City" />
+            <listheader label="Province" />
+            <listheader label="Lucky Number" />
+            <listheader label="Delete"/>
+            <listheader label="Update"/>
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="@init(each.id)"/>
+                <listcell label="@init(each.fullName)"/>
+                <listcell label="@init(each.gender)"/>
+                <listcell label="@init(each.birthdayDate)"/>
+                <listcell label="@init(each.city)"/>
+                <listcell label="@init(each.province)"/>
+                <listcell label="@init(each.luckyNumber)"/>
+                <listcell iconSclass="z-icon-times" onClick="@command('deleteById', id=each.id)"/>
+                <listcell iconSclass="z-icon-edit" onClick="@command('updateById', id=each.id)"/>
+            </listitem>
+        </template>
+    </listbox>
+    <hlayout style="margin-top:20px" width="100%">
+        <vlayout hflex="1">
+            <label value="@load(vm.selectedPerson.id)"/>
+            <label value="@load(vm.selectedPerson.fullName)"/>
+            <label value="@load(vm.selectedPerson.gender)"/>
+            <label value="@load(vm.selectedPerson.birthdayDate)"/>
+            <label value="@load(vm.selectedPerson.city)"/>
+            <label value="@load(vm.selectedPerson.province)"/>
+            <label value="@load(vm.selectedPerson.luckyNumber)"/>
+        </vlayout>
+    </hlayout>
+</window>

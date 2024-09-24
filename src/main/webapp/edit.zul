@@ -2,74 +2,74 @@
 <zk>
     <zscript>
         public void changeSubmitStatus() {
-            boolean isChecked = ((Checkbox) self.getFellow("acceptTermBox")).isChecked();
-            Button submitButton = (Button) self.getFellow("submitButton");
+        boolean isChecked = ((Checkbox) self.getFellow("acceptTermBox")).isChecked();
+        Button submitButton = (Button) self.getFellow("submitButton");
 
         if (isChecked) {
-            submitButton.setDisabled(false);
-            submitButton.setIconSclass("z-icon-check");
+        submitButton.setDisabled(false);
+        submitButton.setIconSclass("z-icon-check");
         } else {
-            submitButton.setDisabled(true);
-            submitButton.setIconSclass("");
-            }
+        submitButton.setDisabled(true);
+        submitButton.setIconSclass("");
+        }
         }
     </zscript>
 
     <window mode="highlighted" border="normal" position="center" height="auto"
-            apply="org.zkoss.bind.BindComposer"  self="@define(content)" viewModel="@id('vm') @init('com.fif.viewModel.SearchViewModel')">
+            apply="org.zkoss.bind.BindComposer"  self="@define(content)" viewModel="@id('vm') @init('com.fif.viewModel.EditViewModel')">
 
         <zscript>
             public void resetValue() {
-                name.setRawValue("");
-                name.setConstraint("no empty");
-                gender.setSelectedItem(null);
-                birthdayDate.setRawValue("");
-                birthdayDate.setConstraint("no empty");
-                city.setRawValue("");
-                city.setConstraint("no empty");
-                acceptTermBox.setChecked(false);
-                }
+            name.setRawValue("");
+            name.setConstraint("no empty");
+            gender.setSelectedItem(null);
+            birthdayDate.setRawValue("");
+            birthdayDate.setConstraint("no empty");
+            city.setRawValue("");
+            city.setConstraint("no empty");
+            acceptTermBox.setChecked(false);
+            }
         </zscript>
 
         <grid hflex="min" vflex="min">
             <auxhead>
-                <auxheader iconSclass="z-icon-user" label="Registration Form" colspan="2" style="font-size:16px"/>
+                <auxheader iconSclass="z-icon-user" label="Update User Form" colspan="2" style="font-size:16px"/>
             </auxhead>
             <columns sizable="true">
                 <column width="180px"/>
                 <column />
             </columns>
             <rows>
-                <row>
-                    <label value="User Name :" style="font-size:14px"/>
-                    <textbox id="usernamebox" value="@save(vm.username)" width="100%" constraint="no empty"/>
-                </row>
-                <row>
-                    <label value="Password :" style="font-size:14px"/>
-                    <textbox id="passwordbox" value="@save(vm.password)" type="password" width="100%"/>
-                </row>
-                <row>
-                    <label value="Re-Entry Password :" style="font-size:14px"/>
-                    <textbox id="repasswordbox" type="password" width="100%"/>
-                </row>
+<!--                <row>-->
+<!--                    <label value="User Name :" style="font-size:14px"/>-->
+<!--                    <textbox id="usernamebox" value="@load(vm.username) @save(vm.username)" width="100%" constraint="no empty"/>-->
+<!--                </row>-->
+<!--                <row>-->
+<!--                    <label value="Password :" style="font-size:14px"/>-->
+<!--                    <textbox id="passwordbox" value="@load(vm.password) @save(vm.password)" type="password" width="100%"/>-->
+<!--                </row>-->
+<!--                <row>-->
+<!--                    <label value="Re-Entry Password :" style="font-size:14px"/>-->
+<!--                    <textbox id="repasswordbox" type="password" width="100%"/>-->
+<!--                </row>-->
                 <row>
                     <label value="Full Name :" style="font-size:14px"/>
-                    <textbox id="fullnamebox" value="@save(vm.fullName)" type="text" width="100%"/>
+                    <textbox id="fullnamebox" value="@load(vm.fullName) @save(vm.fullName)" type="text" width="100%"/>
                 </row>
                 <row>
                     <label value="Gender:" style="font-size:14px"/>
-                    <radiogroup id="gendergroup" selectedItem="@bind(vm.gender)" onCheck="fruit.value = self.selectedItem.label">
+                    <radiogroup id="gendergroup" selectedItem="@load(vm.gender) @save(vm.gender)">
                         <radio label="Male" value="Male" iconSclass="z-icon-male"/>
                         <radio label="Female" value="Female" iconSclass="z-icon-female"/>
                     </radiogroup>
                 </row>
                 <row>
                     <label value="Birthday:" style="font-size:14px"/>
-                    <datebox id="birthdatebox" value="@save(vm.birthdayDate)" width="100%" constraint="no empty, no future"/>
+                    <datebox id="birthdatebox" value="@load(vm.birthdayDate) @save(vm.birthdayDate)" width="100%" constraint="no empty, no future"/>
                 </row>
                 <row>
                     <label value="City:" style="font-size:14px"/>
-                    <combobox id="citybox" selectedItem="@save(vm.city)" width="100%" constraint="no empty">
+                    <combobox id="citybox" value="@load(vm.city) @save(vm.city)" width="100%" constraint="no empty">
                         <comboitem label="Bandung" value="bandung"/>
                         <comboitem label="East Jakarta" value="east jakart"/>
                         <comboitem label="Central Jakarta" value="central jakarta"/>
@@ -84,7 +84,7 @@
                 </row>
                 <row>
                     <label value="Province:" style="font-size:14px"/>
-                    <combobox id="provincebox" selectedItem="@save(vm.province)" width="100%" constraint="no empty">
+                    <combobox id="provincebox" value="@load(vm.province) @save(vm.province)" width="100%" constraint="no empty">
                         <comboitem label="West Java" value="west java"/>
                         <comboitem label="East Java" value="east java"/>
                         <comboitem label="Central Java" value="central java"/>
@@ -94,7 +94,7 @@
                 </row>
                 <row>
                     <label value="Lucky Number" style="font-size:14px"/>
-                    <spinner id="luckynumberbox" value="@bind(vm.luckyNumber)" step="1" width="100%" constraint="no empty"/>
+                    <spinner id="luckynumberbox" value="@load(vm.luckyNumber) @bind(vm.luckyNumber)" step="1" width="100%" constraint="no empty"/>
                 </row>
                 <row spans="2" align="center">
                     <span>
@@ -125,7 +125,7 @@
                             </vbox>
                         </popup>
                         <button id="resetButton" onClick="resetValue()" style="font-size:14px">Reset</button>
-                        <button id="submitButton" disabled="true" style="font-size:14px" onClick="@command('add')">Submit</button>
+                        <button id="submitButton" disabled="true" style="font-size:14px" onClick="@command('updateUser')">Submit</button>
                     </span>
                 </row>
                 <row spans="2">
@@ -135,32 +135,32 @@
         </grid>
     </window>
 
-<!--    <borderlayout height="max">-->
-<!--        <west title="Menu" size="25%" splittable="true" collapsible="true">-->
-<!--            <window>-->
-<!--                <grid>-->
-<!--                    <columns>-->
-<!--                        <column width="100%"/>-->
-<!--                        <column/>-->
-<!--                    </columns>-->
-<!--                    <rows>-->
-<!--                        <row>-->
-<!--                            <button href="login.zul" style="background-color:black" width="100%">Log in</button>-->
-<!--                        </row>-->
-<!--                        <row>-->
-<!--                            <button href="helloworld.zul" style="background-color:blue" width="100%" iconSclass="z-icon-check">Registration</button>-->
-<!--                        </row>-->
-<!--                        <row spans="2">-->
-<!--                            <span>-->
-<!--                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>-->
-<!--                            </span>-->
-<!--                        </row>-->
-<!--                        <row>-->
-<!--                            <button href="forgot.zul" style="background-color:black" width="100%">Forgot Password</button>-->
-<!--                        </row>-->
-<!--                    </rows>-->
-<!--                </grid>-->
-<!--            </window>-->
-<!--        </west>-->
-<!--    </borderlayout>-->
+    <!--    <borderlayout height="max">-->
+    <!--        <west title="Menu" size="25%" splittable="true" collapsible="true">-->
+    <!--            <window>-->
+    <!--                <grid>-->
+    <!--                    <columns>-->
+    <!--                        <column width="100%"/>-->
+    <!--                        <column/>-->
+    <!--                    </columns>-->
+    <!--                    <rows>-->
+    <!--                        <row>-->
+    <!--                            <button href="login.zul" style="background-color:black" width="100%">Log in</button>-->
+    <!--                        </row>-->
+    <!--                        <row>-->
+    <!--                            <button href="helloworld.zul" style="background-color:blue" width="100%" iconSclass="z-icon-check">Registration</button>-->
+    <!--                        </row>-->
+    <!--                        <row spans="2">-->
+    <!--                            <span>-->
+    <!--                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>-->
+    <!--                            </span>-->
+    <!--                        </row>-->
+    <!--                        <row>-->
+    <!--                            <button href="forgot.zul" style="background-color:black" width="100%">Forgot Password</button>-->
+    <!--                        </row>-->
+    <!--                    </rows>-->
+    <!--                </grid>-->
+    <!--            </window>-->
+    <!--        </west>-->
+    <!--    </borderlayout>-->
 </zk>

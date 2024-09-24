@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import com.fif.model.Person;
 
@@ -13,7 +14,7 @@ public class PersonRepository {
 
     static {
         personList.add(
-                new Person(1,
+                new Person(UUID.randomUUID().toString(),
                         "azkaban",
                         "aselole",
                         "Azkaban Aselole",
@@ -24,7 +25,7 @@ public class PersonRepository {
                         10)
         );
         personList.add(
-                new Person(2,
+                new Person(UUID.randomUUID().toString(),
                         "luna",
                         "moonlight",
                         "Luna Moonlight",
@@ -34,7 +35,7 @@ public class PersonRepository {
                         "Semarang",
                         25));
         personList.add(
-                new Person(3,
+                new Person(UUID.randomUUID().toString(),
                         "thor",
                         "hammer",
                         "Thor Hammer",
@@ -45,7 +46,7 @@ public class PersonRepository {
                         42)
         );
         personList.add(
-                new Person(4,
+                new Person(UUID.randomUUID().toString(),
                         "maria",
                         "rose",
                         "Maria Rose",
@@ -56,7 +57,7 @@ public class PersonRepository {
                         33)
         );
         personList.add(
-                new Person(5,
+                new Person(UUID.randomUUID().toString(),
                         "gandalf",
                         "wizard",
                         "Gandalf The Wizard",
@@ -67,7 +68,7 @@ public class PersonRepository {
                         5)
         );
         personList.add(
-                new Person(6,
+                new Person(UUID.randomUUID().toString(),
                         "hermione",
                         "granger",
                         "Hermione Granger",
@@ -79,7 +80,7 @@ public class PersonRepository {
         );
 
         personList.add(
-                new Person(7,
+                new Person(UUID.randomUUID().toString(),
                         "sauron",
                         "darklord",
                         "Sauron the Dark Lord",
@@ -91,7 +92,7 @@ public class PersonRepository {
         );
 
         personList.add(
-                new Person(8,
+                new Person(UUID.randomUUID().toString(),
                         "neville",
                         "longbottom",
                         "Neville Longbottom",
@@ -103,7 +104,7 @@ public class PersonRepository {
         );
 
         personList.add(
-                new Person(9,
+                new Person(UUID.randomUUID().toString(),
                         "daenerys",
                         "targaryen",
                         "Daenerys Targaryen",
@@ -114,7 +115,7 @@ public class PersonRepository {
                         99)
         );
         personList.add(
-                new Person(10,
+                new Person(UUID.randomUUID().toString(),
                         "frodo",
                         "baggins",
                         "Frodo Baggins",
