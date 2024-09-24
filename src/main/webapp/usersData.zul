@@ -1,0 +1,61 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template.zul"?>
+<zk>
+    <borderlayout height="max">
+        <north title="Table User Information" size="100%" splittable="true" collapsible="true" >
+            <window position="center" border="normal" width="1000px" height="400px" mode="embedded" self="@define(content)">
+                <grid>
+                    <columns>
+                        <column label="Name"/>
+                        <column label="Gender"/>
+                        <column label="Birthday"/>
+                        <column label="City"/>
+                        <column label="Province"/>
+                        <column label="Lucky Number"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="Alice"/>
+                            <label value="Female"/>
+                            <label value="1990-01-01"/>
+                            <label value="New York"/>
+                            <label value="NY"/>
+                            <label value="23"/>
+                        </row>
+                        <row>
+                            <label value="Bob"/>
+                            <label value="Male"/>
+                            <label value="1985-05-15"/>
+                            <label value="Los Angeles"/>
+                            <label value="CA"/>
+                            <label value="47"/>
+                        </row>
+                        <row>
+                            <label value="Charlie"/>
+                            <label value="Male"/>
+                            <label value="1992-10-10"/>
+                            <label value="Chicago"/>
+                            <label value="IL"/>
+                            <label value="36"/>
+                        </row>
+                        <row>
+                            <label value="Diana"/>
+                            <label value="Female"/>
+                            <label value="1988-03-25"/>
+                            <label value="Miami"/>
+                            <label value="FL"/>
+                            <label value="59"/>
+                        </row>
+                        <row>
+                            <label value="Eve"/>
+                            <label value="Female"/>
+                            <label value="1995-12-12"/>
+                            <label value="Seattle"/>
+                            <label value="WA"/>
+                            <label value="74"/>
+                        </row>
+                    </rows>
+                </grid>
+            </window>
+        </north>
+    </borderlayout>
+</zk>

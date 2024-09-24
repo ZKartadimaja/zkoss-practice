@@ -1,0 +1,166 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template.zul"?>
+<zk>
+    <zscript>
+        public void changeSubmitStatus() {
+            boolean isChecked = ((Checkbox) self.getFellow("acceptTermBox")).isChecked();
+            Button submitButton = (Button) self.getFellow("submitButton");
+
+        if (isChecked) {
+            submitButton.setDisabled(false);
+            submitButton.setIconSclass("z-icon-check");
+        } else {
+            submitButton.setDisabled(true);
+            submitButton.setIconSclass("");
+            }
+        }
+    </zscript>
+
+    <window mode="highlighted" border="normal" position="center" height="auto"
+            apply="org.zkoss.bind.BindComposer"  self="@define(content)">
+
+        <zscript>
+            public void resetValue() {
+                name.setRawValue("");
+                name.setConstraint("no empty");
+                gender.setSelectedItem(null);
+                birthdayDate.setRawValue("");
+                birthdayDate.setConstraint("no empty");
+                city.setRawValue("");
+                city.setConstraint("no empty");
+                acceptTermBox.setChecked(false);
+                }
+        </zscript>
+
+        <grid hflex="min" vflex="min">
+            <auxhead>
+                <auxheader iconSclass="z-icon-user" label="Registration Form" colspan="2" style="font-size:16px"/>
+            </auxhead>
+            <columns sizable="true">
+                <column width="180px"/>
+                <column />
+            </columns>
+            <rows>
+                <row>
+                    <label value="User Name :" style="font-size:14px"/>
+                    <textbox id="usernamebox" width="100%" constraint="no empty"/>
+                </row>
+                <row>
+                    <label value="Password :" style="font-size:14px"/>
+                    <textbox id="passwordbox" type="password" width="100%"/>
+                </row>
+                <row>
+                    <label value="Re-Entry Password :" style="font-size:14px"/>
+                    <textbox id="repasswordbox" type="password" width="100%"/>
+                </row>
+                <row>
+                    <label value="Full Name :" style="font-size:14px"/>
+                    <textbox id="fullnamebox" type="text" width="100%"/>
+                </row>
+                <row>
+                    <label value="Gender:" style="font-size:14px"/>
+                    <radiogroup id="gendergroup" onCheck="fruit.value = self.selectedItem.label">
+                        <radio label="Male" iconSclass="z-icon-male"/>
+                        <radio label="Female" iconSclass="z-icon-female"/>
+                    </radiogroup>
+                </row>
+                <row>
+                    <label value="Birthday:" style="font-size:14px"/>
+                    <datebox id="birthdatebox" width="100%" constraint="no empty, no future"/>
+                </row>
+                <row>
+                    <label value="City:" style="font-size:14px"/>
+                    <combobox id="citybox" width="100%" constraint="no empty">
+                        <comboitem label="Bandung"/>
+                        <comboitem label="East Jakarta"/>
+                        <comboitem label="Central Jakarta"/>
+                        <comboitem label="West Jakarta"/>
+                        <comboitem label="South Jakarta"/>
+                        <comboitem label="North Jakarta"/>
+                        <comboitem label="Thousand Island"/>
+                        <comboitem label="Bogor"/>
+                        <comboitem label="Cilegon"/>
+                        <comboitem label="Tangerang"/>
+                    </combobox>
+                </row>
+                <row>
+                    <label value="Province:" style="font-size:14px"/>
+                    <combobox id="provincebox" width="100%" constraint="no empty">
+                        <comboitem label="West Java"/>
+                        <comboitem label="East Java"/>
+                        <comboitem label="Central Java"/>
+                        <comboitem label="Banten"/>
+                        <comboitem label="DKI Jakarta"/>
+                    </combobox>
+                </row>
+                <row>
+                    <label value="Lucky Number" style="font-size:14px"/>
+                    <spinner id="luckynumberbox" step="1" width="100%" constraint="no empty"/>
+                </row>
+                <row spans="2" align="center">
+                    <span>
+                        <checkbox id="acceptTermBox" onCheck="changeSubmitStatus()" style="font-size:14px"/>
+                        <label tooltip="any"> Accept Term of Use (Click for detail)</label>
+                        <popup id="any" width="300px">
+                            <vbox>
+                                Term of Use.
+                                <div>
+                                    Pasal 1
+                                </div>
+                                <div>
+                                    Pasal 2
+                                </div>
+                            </vbox>
+                        </popup>
+                    </span>
+                </row>
+                <row spans="2" align="center">
+                    <span>
+                        <toolbarbutton label="Help" tooltip="Help" style="font-size:14px"/>
+                        <popup id="Help" width="300px">
+                            <vbox>
+                                Any Question?
+                                <div>
+                                    <textbox/>
+                                </div>
+                            </vbox>
+                        </popup>
+                        <button id="resetButton" onClick="resetValue()" style="font-size:14px">Reset</button>
+                        <button id="submitButton" href="searchMvc.zul" disabled="true" style="font-size:14px">Submit</button>
+                    </span>
+                </row>
+                <row spans="2">
+                    <label style="color: blue font-size:14px" onClick='self.getDesktop().getExecution().sendRedirect("login.zul")' >Already Have an Account?</label>
+                </row>
+            </rows>
+        </grid>
+    </window>
+
+<!--    <borderlayout height="max">-->
+<!--        <west title="Menu" size="25%" splittable="true" collapsible="true">-->
+<!--            <window>-->
+<!--                <grid>-->
+<!--                    <columns>-->
+<!--                        <column width="100%"/>-->
+<!--                        <column/>-->
+<!--                    </columns>-->
+<!--                    <rows>-->
+<!--                        <row>-->
+<!--                            <button href="login.zul" style="background-color:black" width="100%">Log in</button>-->
+<!--                        </row>-->
+<!--                        <row>-->
+<!--                            <button href="helloworld.zul" style="background-color:blue" width="100%" iconSclass="z-icon-check">Registration</button>-->
+<!--                        </row>-->
+<!--                        <row spans="2">-->
+<!--                            <span>-->
+<!--                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>-->
+<!--                            </span>-->
+<!--                        </row>-->
+<!--                        <row>-->
+<!--                            <button href="forgot.zul" style="background-color:black" width="100%">Forgot Password</button>-->
+<!--                        </row>-->
+<!--                    </rows>-->
+<!--                </grid>-->
+<!--            </window>-->
+<!--        </west>-->
+<!--    </borderlayout>-->
+</zk>

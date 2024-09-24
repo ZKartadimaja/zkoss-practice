@@ -1,0 +1,36 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="template.zul"?>
+<window title="Search" width="100%" border="normal" apply="com.fif.controller.SearchController" style="" self="@define(content)">
+    Keyword:
+    <textbox id="keywordBox"/>
+    <button id="searchButton" label="Search" iconSclass="z-con-search" style="margin:0 0 5px 5px"/>
+    <listbox id="personListbox" emptyMessage="No Person found in the result" rows="5">
+        <listhead>
+            <listheader label="Name" />
+            <listheader label="Gender" />
+            <listheader label="Birthday Date"/>
+            <listheader label="City" />
+            <listheader label="Province" />
+            <listheader label="Lucky Number" />
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="${each.fullName}"/>
+                <listcell label="${each.gender}"/>
+                <listcell label="${each.birthdayDate}"/>
+                <listcell label="${each.city}"/>
+                <listcell label="${each.province}"/>
+                <listcell label="${each.luckyNumber}"/>
+            </listitem>
+        </template>
+    </listbox>
+    <hlayout style="margin-top:20px" width="100%">
+        <vlayout hflex="1">
+            <label id="fullNameLabel"/>
+            <label id="genderLabel"/>
+            <label id="birthdayDateLabel"/>
+            <label id="cityLabel"/>
+            <label id="provinceLabel"/>
+            <label id="luckyNumberLabel"/>
+        </vlayout>
+    </hlayout>
+</window>
