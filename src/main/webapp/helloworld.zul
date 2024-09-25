@@ -20,18 +20,28 @@
 
         <zscript>
             public void resetValue() {
-                name.setRawValue("");
-                name.setConstraint("no empty");
-                gender.setSelectedItem(null);
-                birthdayDate.setRawValue("");
-                birthdayDate.setConstraint("no empty");
-                city.setRawValue("");
-                city.setConstraint("no empty");
+                usernamebox.setRawValue("");
+                usernamebox.setConstraint("no empty");
+                passwordbox.setRawValue("");
+                passwordbox.setConstraint("no empty");
+                repasswordbox.setRawValue("");
+                repasswordbox.setConstraint("no empty");
+                fullnamebox.setRawValue("");
+                fullnamebox.setConstraint("no empty");
+                gendergroup.setSelectedItem(null);
+                birthdatebox.setRawValue("");
+                birthdatebox.setConstraint("no empty");
+                citybox.setRawValue("");
+                citybox.setConstraint("no empty");
+                provincebox.setRawValue("");
+                provincebox.setConstraint("no empty");
+                luckynumberbox.setRawValue("");
+                luckynumberbox.setConstraint("no empty");
                 acceptTermBox.setChecked(false);
                 }
         </zscript>
 
-        <grid hflex="min" vflex="min">
+        <grid hflex="min" vflex="min" style="align-items:center">
             <auxhead>
                 <auxheader iconSclass="z-icon-user" label="Registration Form" colspan="2" style="font-size:16px"/>
             </auxhead>
@@ -48,10 +58,10 @@
                     <label value="Password :" style="font-size:14px"/>
                     <textbox id="passwordbox" value="@save(vm.password)" type="password" width="100%"/>
                 </row>
-                <row>
-                    <label value="Re-Entry Password :" style="font-size:14px"/>
-                    <textbox id="repasswordbox" type="password" width="100%"/>
-                </row>
+<!--                <row>-->
+<!--                    <label value="Re-Entry Password :" style="font-size:14px"/>-->
+<!--                    <textbox id="repasswordbox" type="password" width="100%"/>-->
+<!--                </row>-->
                 <row>
                     <label value="Full Name :" style="font-size:14px"/>
                     <textbox id="fullnamebox" value="@save(vm.fullName)" type="text" width="100%"/>
@@ -70,26 +80,26 @@
                 <row>
                     <label value="City:" style="font-size:14px"/>
                     <combobox id="citybox" selectedItem="@save(vm.city)" width="100%" constraint="no empty">
-                        <comboitem label="Bandung" value="bandung"/>
-                        <comboitem label="East Jakarta" value="east jakart"/>
-                        <comboitem label="Central Jakarta" value="central jakarta"/>
-                        <comboitem label="West Jakarta" value="west jakarta"/>
-                        <comboitem label="South Jakarta" value="south jakarta"/>
-                        <comboitem label="North Jakarta" value="north jakarta"/>
-                        <comboitem label="Thousand Island" value="thousand island"/>
-                        <comboitem label="Bogor" value="bogor"/>
-                        <comboitem label="Cilegon" value="cilegon"/>
-                        <comboitem label="Tangerang" value="tangerang"/>
+                        <comboitem label="Bandung" value="Bandung"/>
+                        <comboitem label="East Jakarta" value="East Jakarta"/>
+                        <comboitem label="Central Jakarta" value="Central Jakarta"/>
+                        <comboitem label="West Jakarta" value="West Jakarta"/>
+                        <comboitem label="South Jakarta" value="South Jakarta"/>
+                        <comboitem label="North Jakarta" value="North Jakarta"/>
+                        <comboitem label="Thousand Island" value="Thousand Island"/>
+                        <comboitem label="Bogor" value="Bogor"/>
+                        <comboitem label="Cilegon" value="Cilegon"/>
+                        <comboitem label="Tangerang" value="Tangerang"/>
                     </combobox>
                 </row>
                 <row>
                     <label value="Province:" style="font-size:14px"/>
                     <combobox id="provincebox" selectedItem="@save(vm.province)" width="100%" constraint="no empty">
-                        <comboitem label="West Java" value="west java"/>
-                        <comboitem label="East Java" value="east java"/>
-                        <comboitem label="Central Java" value="central java"/>
-                        <comboitem label="Banten" value="banten"/>
-                        <comboitem label="DKI Jakarta" value="dki jakarta"/>
+                        <comboitem label="West Java" value="West java"/>
+                        <comboitem label="East Java" value="East java"/>
+                        <comboitem label="Central Java" value="Central java"/>
+                        <comboitem label="Banten" value="Banten"/>
+                        <comboitem label="DKI Jakarta" value="DKI Jakarta"/>
                     </combobox>
                 </row>
                 <row>
@@ -134,33 +144,4 @@
             </rows>
         </grid>
     </window>
-
-<!--    <borderlayout height="max">-->
-<!--        <west title="Menu" size="25%" splittable="true" collapsible="true">-->
-<!--            <window>-->
-<!--                <grid>-->
-<!--                    <columns>-->
-<!--                        <column width="100%"/>-->
-<!--                        <column/>-->
-<!--                    </columns>-->
-<!--                    <rows>-->
-<!--                        <row>-->
-<!--                            <button href="login.zul" style="background-color:black" width="100%">Log in</button>-->
-<!--                        </row>-->
-<!--                        <row>-->
-<!--                            <button href="helloworld.zul" style="background-color:blue" width="100%" iconSclass="z-icon-check">Registration</button>-->
-<!--                        </row>-->
-<!--                        <row spans="2">-->
-<!--                            <span>-->
-<!--                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>-->
-<!--                            </span>-->
-<!--                        </row>-->
-<!--                        <row>-->
-<!--                            <button href="forgot.zul" style="background-color:black" width="100%">Forgot Password</button>-->
-<!--                        </row>-->
-<!--                    </rows>-->
-<!--                </grid>-->
-<!--            </window>-->
-<!--        </west>-->
-<!--    </borderlayout>-->
 </zk>

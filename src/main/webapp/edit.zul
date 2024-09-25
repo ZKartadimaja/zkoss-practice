@@ -20,13 +20,17 @@
 
         <zscript>
             public void resetValue() {
-            name.setRawValue("");
-            name.setConstraint("no empty");
-            gender.setSelectedItem(null);
-            birthdayDate.setRawValue("");
-            birthdayDate.setConstraint("no empty");
-            city.setRawValue("");
-            city.setConstraint("no empty");
+            fullnamebox.setRawValue("");
+            fullnamebox.setConstraint("no empty");
+            gendergroup.setSelectedItem(null);
+            birthdatebox.setRawValue("");
+            birthdatebox.setConstraint("no empty");
+            citybox.setRawValue("");
+            citybox.setConstraint("no empty");
+            provincebox.setRawValue("");
+            provincebox.setConstraint("no empty");
+            luckynumberbox.setRawValue("");
+            luckynumberbox.setConstraint("");
             acceptTermBox.setChecked(false);
             }
         </zscript>
@@ -40,18 +44,6 @@
                 <column />
             </columns>
             <rows>
-<!--                <row>-->
-<!--                    <label value="User Name :" style="font-size:14px"/>-->
-<!--                    <textbox id="usernamebox" value="@load(vm.username) @save(vm.username)" width="100%" constraint="no empty"/>-->
-<!--                </row>-->
-<!--                <row>-->
-<!--                    <label value="Password :" style="font-size:14px"/>-->
-<!--                    <textbox id="passwordbox" value="@load(vm.password) @save(vm.password)" type="password" width="100%"/>-->
-<!--                </row>-->
-<!--                <row>-->
-<!--                    <label value="Re-Entry Password :" style="font-size:14px"/>-->
-<!--                    <textbox id="repasswordbox" type="password" width="100%"/>-->
-<!--                </row>-->
                 <row>
                     <label value="Full Name :" style="font-size:14px"/>
                     <textbox id="fullnamebox" value="@load(vm.fullName) @save(vm.fullName)" type="text" width="100%"/>
@@ -134,33 +126,4 @@
             </rows>
         </grid>
     </window>
-
-    <!--    <borderlayout height="max">-->
-    <!--        <west title="Menu" size="25%" splittable="true" collapsible="true">-->
-    <!--            <window>-->
-    <!--                <grid>-->
-    <!--                    <columns>-->
-    <!--                        <column width="100%"/>-->
-    <!--                        <column/>-->
-    <!--                    </columns>-->
-    <!--                    <rows>-->
-    <!--                        <row>-->
-    <!--                            <button href="login.zul" style="background-color:black" width="100%">Log in</button>-->
-    <!--                        </row>-->
-    <!--                        <row>-->
-    <!--                            <button href="helloworld.zul" style="background-color:blue" width="100%" iconSclass="z-icon-check">Registration</button>-->
-    <!--                        </row>-->
-    <!--                        <row spans="2">-->
-    <!--                            <span>-->
-    <!--                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>-->
-    <!--                            </span>-->
-    <!--                        </row>-->
-    <!--                        <row>-->
-    <!--                            <button href="forgot.zul" style="background-color:black" width="100%">Forgot Password</button>-->
-    <!--                        </row>-->
-    <!--                    </rows>-->
-    <!--                </grid>-->
-    <!--            </window>-->
-    <!--        </west>-->
-    <!--    </borderlayout>-->
 </zk>

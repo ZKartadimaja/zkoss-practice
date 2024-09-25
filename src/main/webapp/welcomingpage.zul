@@ -14,7 +14,7 @@
                 <vbox>
                     <label value="Log In" style="cursor: pointer;" onClick='self.getDesktop().getExecution().sendRedirect("login.zul")' />
                     <label value="Register" style="cursor: pointer;" onClick='self.getDesktop().getExecution().sendRedirect("helloworld.zul")' />
-                    <label value="Check Data" style="cursor: pointer;" onClick='self.getDesktop().getExecution().sendRedirect("searchMvc.zul")' />
+                    <label value="Check Data" style="cursor: pointer;" onClick='self.getDesktop().getExecution().sendRedirect("searchMvvm.zul")' />
                     <label value="Forgot Password" style="cursor: pointer;" onClick='self.getDesktop().getExecution().sendRedirect("forgot.zul")' />
                 </vbox>
             </popup>

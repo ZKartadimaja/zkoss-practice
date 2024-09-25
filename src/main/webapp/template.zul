@@ -4,17 +4,21 @@
             <borderlayout>
                 <north vflex="min" style="background:#F9FCFF;" border="none" sclass="no-padding" height="60px">
                     <div height="10px" style="color:black;display:flex;align-items:center;">
-                        <span style="font-size:64px; padding-left:20px;">Header</span>
+                        <span style="font-size:64px; padding-left:20px;">
+                            <label style="position: center; font-size: 24px; font-weight: bold; color:#0093F9">CRUD Application System</label>
+                        </span>
                     </div>
                 </north>
                 <south vflex="min" border="none" style="background:#F9FCFF;">
-                    <div height="20px"  style="color:gray; text-alignment:center;">Footer</div>
+                    <div height="16px"  style="color:gray; text-alignment:center">
+                        <label style="font-size:10px">© PT Federal International Finance "FIFGROUP" 2024</label>
+                    </div>
                 </south>
                 <center vflex="min" border="none" style="background:#FFFFFF;" self="@insert(content)">
                 </center>
             </borderlayout>
         </center>
-        <west title="Menu" size="25%" splittable="true" collapsible="true">
+        <west title="Menu" size="25%" splittable="true" collapsible="true" ctrlKeys="">
             <window>
                 <grid>
                     <columns>
@@ -30,7 +34,7 @@
                         </row>
                         <row spans="2">
                             <span>
-                                <button href="usersData.zul" style="background-color:black" width="100%">Table Data</button>
+                                <button href="searchMvvm.zul" style="background-color:black" width="100%">Table Data</button>
                             </span>
                         </row>
                         <row>
